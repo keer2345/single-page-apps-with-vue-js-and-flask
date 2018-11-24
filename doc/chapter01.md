@@ -58,3 +58,47 @@ yarn add vue-style-loader css-loader sass-loader node-sass -D
 </div>  
 </template>  
 ```
+
+## Mocking an AJAX Request for Surveys
+`src/api/index.js`
+```javascript
+const surveys = [
+    # ...
+]
+
+export function fetchSurveys() {
+  return new Promise((resolve, reject) => {
+    setTimeout(() => {
+      resolve(surveys)
+    }, 300)
+  })
+}
+```
+
+`src/components/Home.vue`
+
+
+```html
+<template>
+<div>
+  <!-- ... -->
+</div>
+</template>
+<script>
+import { fetchSurveys } from '@/api'
+export default {
+  data() {
+    return {
+      surveys: []
+    }
+  },
+  beforeMount() {
+    fetchSurveys().then(response => {
+      this.surveys = response
+    })
+  }
+}
+</script>
+<style scoped>
+</style>
+```
