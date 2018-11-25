@@ -46,3 +46,4 @@ new Vue({
 ```
 
 ## Migrating the Home Component to Vuex
+## Migrating the Survey Component
