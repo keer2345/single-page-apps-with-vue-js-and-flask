@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
-import { fetchSurveys, fetchSurvey, saveSurveyResponse } from '@/api'
+import {
+  fetchSurveys,
+  fetchSurvey,
+  saveSurveyResponse,
+  postNewSurvey
+} from '@/api'
 
 Vue.use(Vuex)
 
@@ -49,6 +54,9 @@ const store = new Vuex.Store({
     },
     addSurveyResponse(context) {
       return saveSurveyResponse(context.state.currentSurvey)
+    },
+    submitNewSurvey(context, survey) {
+      return postNewSurvey(survey)
     }
   }
 })

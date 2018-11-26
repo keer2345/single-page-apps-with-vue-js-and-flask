@@ -47,3 +47,4 @@ new Vue({
 
 ## Migrating the Home Component to Vuex
 ## Migrating the Survey Component
+## Adding the Ability to Create New Surveys
