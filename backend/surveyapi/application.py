@@ -8,4 +8,7 @@ def create_app(app_name='SURVEY_APP'):
     from surveyapi.api import api
     app.register_blueprint(api, url_prefix='/api')
 
+    from surveyapi.models import db
+    db.init_app(app)
+
     return app
