@@ -44,12 +44,12 @@ const store = new Vuex.Store({
   actions: {
     loadSurveys(context) {
       return fetchSurveys().then(response =>
-        context.commit('setSurveys', { surveys: response })
+        context.commit('setSurveys', { surveys: response.data })
       )
     },
     loadSurvey(context, { id }) {
       return fetchSurvey(id).then(response =>
-        context.commit('setSurvey', { survey: response })
+        context.commit('setSurvey', { survey: response.data })
       )
     },
     addSurveyResponse(context) {
