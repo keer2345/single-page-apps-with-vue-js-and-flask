@@ -8,12 +8,22 @@
       <router-link to="/surveys" class="navbar-item">
         Create Survey
       </router-link>
+      <router-link v-if="!isAuthenticated" to="/login" class="navbar-item">
+        Login / Register
+      </router-link>
     </div>
   </div>
 </nav>  
 </template>
 
 <script>
+export default {  
+  computed: {
+    isAuthenticated () {
+      return this.$store.getters.isAuthenticated
+    }
+  }
+}
 </script>
 
 <style>

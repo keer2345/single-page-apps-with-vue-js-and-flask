@@ -21,7 +21,19 @@ export default new Router({
     {
       path: '/surveys',
       name: 'NewSurvey',
-      component: NewSurvey
+      component: NewSurvey,
+      beforeEnter(to, from, next) {
+        if (!store.getters.isAuthenticated) {
+          next('/login')
+        } else {
+          next()
+        }
+      }
+    },
+    {
+      path: '/login',
+      name: 'Login',
+      component: Login
     }
   ]
 })
